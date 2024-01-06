@@ -1,10 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import ReactDOM from 'react-dom';
+import { createGlobalStyle } from 'styled-components';
+import App from './App';
+import bgImage from './image/tetrisBackground.jpg';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+// eslint-disable-next-line react-refresh/only-export-components
+const GlobalStyles = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    background: url(${bgImage}) #000;
+    background-size: cover;
+    background-position: center;
+  }
+`;
+
+ReactDOM.render(
+  <>
+    <GlobalStyles />
     <App />
-  </React.StrictMode>,
-)
+  </>,
+  document.getElementById('root')
+);
